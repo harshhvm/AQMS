@@ -1,0 +1,10 @@
+create retention policy one_hr on aqms duration 1h replication 1 default
+
+create retention policy avg_data on aqms duration 1h replication 1
+
+
+create continuous query AvgData on aqms resample every 1m begin select mean(humidity) as 
+meanHumi,mean(ppm) as meanPPM,mean(temp) as meanTemp, 0 as Status into aqms.avg_data.avgAqData 
+from aqms.one_hr.aqData group by time(1m), devId end
+
+

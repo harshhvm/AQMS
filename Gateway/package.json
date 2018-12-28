@@ -1,0 +1,16 @@
+{
+  "name": "gateway",
+  "version": "1.0.0",
+  "description": "AQMS Gateway",
+  "main": "mqSub.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mayuresh Darade",
+  "license": "MIT",
+  "dependencies": {
+    "influxdb-nodejs": "^2.8.0",
+    "mqtt": "^2.18.3",
+    "request": "^2.87.0"
+  }
+}
