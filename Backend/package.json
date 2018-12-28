@@ -1,0 +1,25 @@
+{
+  "name": "air",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Harshvardhan Mishra and My Team",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
+    "crypto-js": "^3.1.9-1",
+    "express": "^4.16.3",
+    "mongoose": "^5.2.4",
+    "mongoose-double": "0.0.1",
+    "mqtt": "^2.18.3",
+    "nodemailer": "^4.6.7",
+    "nodemon": "^1.18.3",
+    "path": "^0.12.7",
+    "request": "^2.87.0",
+    "twilio": "^3.18.0"
+  }
+}
