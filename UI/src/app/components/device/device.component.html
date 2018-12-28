@@ -1,0 +1,152 @@
+<topbar></topbar>
+<sidebar></sidebar>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      Device Master
+    </h1>
+  </section>
+  <section class="content">
+    <div class="col-lg-12">
+      <div class="box">
+        <div class="box-header">
+          <h3 class="box-title">List Of Devices</h3>
+        </div>
+        <div class="box-body table-responsive">
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Add New Device</button>
+          <div class="clearfix" style="height: 5px;"></div>
+          <table id="example1" class="table table-bordered table-condensed table-striped table-hover">
+            <thead>
+              <tr>
+                <th style="width:20%;">Name</th>
+                <th style="width:15%;">Longitude</th>
+                <th style="width:15%;">Latitude</th>
+                <th style="width:15%;">Gateway</th>
+                <th style="width:15%;">Device Id</th>
+                <th style="width:13%;">Key</th>
+                <th style="width:7%;"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let dev of Devices">
+                <td>{{dev.name}}</td>
+                <td>{{dev.longitude}}</td>
+                <td>{{dev.latitude}}</td>
+                <td>{{dev.gwName}}</td>
+                <td>{{dev.devId}}</td>
+                <td>{{dev.Key}}</td>
+                <td>
+                  <a (click)="openEditDevice(dev)" class="text-blue">
+                    <i class="fa fa-search-plus"></i>
+                  </a>
+                  <a (click)="openDeleteDevice()" class="text-red" >
+                    <i class="fa fa-trash "></i>
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabel">Add New Device</h4>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+                <label>Gateway</label>
+                <select [(ngModel)]="gatewayid" id="gateway" name="gateway" class="form-control select2" style="width: 100%;">
+                    <option value="">Select</option>
+                    <option *ngFor="let gw of Gateways" value="{{gw._id}}" >{{gw.name}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+              <label>Name</label>
+              <input type="text" class="form-control" [(ngModel)]="devname">
+            </div>
+            <div class="form-group">
+              <label>Longitude</label>
+              <input type="text" class="form-control" [(ngModel)]="longitude">
+            </div>
+            <div class="form-group">
+              <label>Latitude</label>
+              <input type="text" class="form-control" [(ngModel)]="latitude">
+            </div>
+            <div class="form-group">
+              <label>Device Id</label>
+              <input type="text" class="form-control" [(ngModel)]="devid">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <input (click)="addDevice()" type="submit" value="Add New Device" name="submit" class="btn btn-primary" id="submit" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="updateDevice" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabel">Update Device</h4>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+                <label>Gateway</label>
+                <select [(ngModel)]="edgatewayid" id="gateway" name="gateway" class="form-control select2" style="width: 100%;">
+                    <option value="">Select</option>
+                    <option *ngFor="let gw of Gateways" value="{{gw._id}}">{{gw.name}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+              <label>Name</label>
+              <input type="text" class="form-control" [(ngModel)]="eddevname">
+            </div>
+            <div class="form-group">
+              <label>Longitude</label>
+              <input type="text" class="form-control" [(ngModel)]="edlongitude">
+            </div>
+            <div class="form-group">
+              <label>Latitude</label>
+              <input type="text" class="form-control" [(ngModel)]="edlatitude">
+            </div>
+            <div class="form-group">
+              <label>Device Id</label>
+              <input type="text" class="form-control" [(ngModel)]="eddevid">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <input (click)="updateDevice()" type="submit" value="Update" name="submit" class="btn btn-primary" id="submit" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </section>
+  <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+<footer class="main-footer">
+  <div class="pull-right hidden-xs">
+    <b>Version</b> 1.0.0
+  </div>
+  <strong>Copyright &copy; 2018
+    <a href="address">DIoT</a>.</strong> All rights reserved.
+</footer>
